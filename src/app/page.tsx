@@ -108,12 +108,11 @@ export default function Home() {
              viewport={{ once: true, margin: "-100px" }}
              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
              className={`font-light leading-tight tracking-tight ${
-               locale === 'ko' ? 'text-4xl lg:text-6xl' : 'text-5xl lg:text-7xl'
+               locale === 'ko' ? 'text-[clamp(2.5rem,5vw,4.5rem)]' : 'text-5xl lg:text-7xl'
              }`}
            >
-             {copy.about.titleLines[0]}
-             <br/>
-             <span className="font-medium italic">{copy.about.titleLines[1]}</span>
+             <span className="block whitespace-nowrap">{copy.about.titleLines[0]}</span>
+             <span className="block whitespace-nowrap font-medium italic">{copy.about.titleLines[1]}</span>
            </motion.h2>
          </div>
          <div className="w-full lg:w-7/12">
