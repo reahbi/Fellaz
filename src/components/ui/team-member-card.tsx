@@ -2,9 +2,10 @@
 
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { clsx } from 'clsx'
+import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-function cn(...inputs: any[]) { return twMerge(clsx(inputs)) }
+import { useEffect, useState } from 'react'
+function cn(...inputs: ClassValue[]) { return twMerge(clsx(inputs)) }
 
 interface TeamMemberCardProps {
   position: 'left' | 'right'
@@ -12,6 +13,7 @@ interface TeamMemberCardProps {
   firstName?: string
   lastName?: string
   imageUrl?: string
+  fallbackImageUrl?: string
   description?: string
   className?: string
 }
@@ -26,11 +28,17 @@ export default function TeamMemberCard({
   firstName = 'First',
   lastName = 'Last',
   imageUrl = 'https://images.unsplash.com/photo-1526510747491-58f928ec870f?fm=jpg&q=60',
+  fallbackImageUrl,
   description = 'Passionate about building the future.',
   className,
 }: TeamMemberCardProps) {
   const fullName = `${firstName} ${lastName}`
   const isPositionRight = position === 'right'
+  const [resolvedImageUrl, setResolvedImageUrl] = useState(imageUrl)
+
+  useEffect(() => {
+    setResolvedImageUrl(imageUrl)
+  }, [imageUrl])
 
   return (
     <motion.div
@@ -72,8 +80,13 @@ export default function TeamMemberCard({
           {/* Subtle grain overlay for texture */}
           <div className='pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/10 to-transparent' />
           <img
-            src={imageUrl}
+            src={resolvedImageUrl}
             alt={fullName}
+            onError={() => {
+              if (fallbackImageUrl && resolvedImageUrl !== fallbackImageUrl) {
+                setResolvedImageUrl(fallbackImageUrl)
+              }
+            }}
             className='h-full w-full object-cover transition-transform duration-1000 ease-[0.22,1,0.36,1] hover:scale-110 filter grayscale contrast-125'
           />
         </motion.div>

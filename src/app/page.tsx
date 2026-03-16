@@ -3,45 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import TeamMemberCard from '@/components/ui/team-member-card';
 import { useRef } from 'react';
-
-const founders = [
-  {
-    firstName: 'Yoonho',
-    lastName: 'Kim',
-    fullName: '김윤호',
-    jobPosition: 'Co-Founder & CEO',
-    description: 'Visionary leader driving Fellatio towards shaping the future of digital experiences with uncompromising aesthetic standards.',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop',
-    position: 'left' as const,
-  },
-  {
-    firstName: 'Changhyun',
-    lastName: 'Kim',
-    fullName: '김창현',
-    jobPosition: 'Co-Founder & CTO',
-    description: 'Master architect of robust scalable solutions, ensuring flawless execution from the deepest backend to the sharpest frontend.',
-    imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop',
-    position: 'right' as const,
-  },
-  {
-    firstName: 'Sanghyun',
-    lastName: 'Lee',
-    fullName: '이상현',
-    jobPosition: 'Co-Founder & CDO',
-    description: 'Design purist crafting pixel-perfect, memorable digital aesthetics. Every curve and whitespace is an exercise in intentionality.',
-    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop',
-    position: 'left' as const,
-  },
-  {
-    firstName: 'Jaehyup',
-    lastName: 'Jung',
-    fullName: '정재협',
-    jobPosition: 'Co-Founder & COO',
-    description: 'Operations genius orchestrating seamless workflows and business growth with surgical precision.',
-    imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop',
-    position: 'right' as const,
-  }
-];
+import { founders } from '@/lib/founders';
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -102,10 +64,10 @@ export default function Home() {
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg md:text-3xl text-zinc-400 max-w-3xl mx-auto font-light tracking-wide"
+              className="text-[clamp(0.95rem,2vw,1.8rem)] text-zinc-400 max-w-5xl mx-auto font-light tracking-wide whitespace-nowrap"
             >
-              Redefining digital elegance. 
-              <br/>Crafted by four visionaries.
+              Backing category-defining ventures with disciplined execution.
+              <br/>Led by four founder CEOs.
             </motion.p>
           </div>
           
@@ -139,7 +101,7 @@ export default function Home() {
              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
              className="text-2xl text-zinc-400 leading-relaxed font-light"
            >
-             We believe in pushing the boundaries of what's possible on the web. Our team combines deep technical expertise with an obsessive focus on design, ensuring every interaction feels magical. Black and white is not a constraint; it's our canvas for ultimate clarity and uncompromising aesthetics.
+             We believe in pushing the boundaries of what&apos;s possible on the web. Our team combines deep technical expertise with an obsessive focus on design, ensuring every interaction feels magical. Black and white is not a constraint; it&apos;s our canvas for ultimate clarity and uncompromising aesthetics.
            </motion.p>
          </div>
       </section>
@@ -176,7 +138,8 @@ export default function Home() {
               lastName={founder.lastName}
               jobPosition={founder.jobPosition}
               description={founder.description}
-              imageUrl={founder.imageUrl}
+              imageUrl={founder.publicImageUrl}
+              fallbackImageUrl={founder.fallbackImageUrl}
             />
           ))}
         </div>

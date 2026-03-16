@@ -1,0 +1,54 @@
+[
+  {
+    "id": "kimyunho",
+    "firstName": "Kim",
+    "lastName": "Yunho",
+    "fullName": "김윤호",
+    "jobPosition": "CEO",
+    "description": "Visionary leader driving Fellatio towards shaping the future of digital experiences with uncompromising aesthetic standards.",
+    "position": "left",
+    "fallbackImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+    "inputDir": "image/kimyunho",
+    "outputImagePath": "public/founders/kimyunho.png",
+    "publicImageUrl": "/founders/kimyunho.png"
+  },
+  {
+    "id": "kimchanghyun",
+    "firstName": "Changhyun",
+    "lastName": "Kim",
+    "fullName": "김창현",
+    "jobPosition": "CEO",
+    "description": "Master architect of robust scalable solutions, ensuring flawless execution from the deepest backend to the sharpest frontend.",
+    "position": "right",
+    "fallbackImageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
+    "inputDir": "image/kimchanghyun",
+    "outputImagePath": "public/founders/kimchanghyun.png",
+    "publicImageUrl": "/founders/kimchanghyun.png"
+  },
+  {
+    "id": "leesanghyun",
+    "firstName": "Sanghyun",
+    "lastName": "Lee",
+    "fullName": "이상현",
+    "jobPosition": "CEO",
+    "description": "Design purist crafting pixel-perfect, memorable digital aesthetics. Every curve and whitespace is an exercise in intentionality.",
+    "position": "left",
+    "fallbackImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop",
+    "inputDir": "image/leesanghyun",
+    "outputImagePath": "public/founders/leesanghyun.png",
+    "publicImageUrl": "/founders/leesanghyun.png"
+  },
+  {
+    "id": "jungjaehyub",
+    "firstName": "Jaehyup",
+    "lastName": "Jung",
+    "fullName": "정재협",
+    "jobPosition": "CEO",
+    "description": "Operations genius orchestrating seamless workflows and business growth with surgical precision.",
+    "position": "right",
+    "fallbackImageUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop",
+    "inputDir": "image/jungjaehyub",
+    "outputImagePath": "public/founders/jungjaehyub.png",
+    "publicImageUrl": "/founders/jungjaehyub.png"
+  }
+]
