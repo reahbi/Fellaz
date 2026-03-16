@@ -107,9 +107,13 @@ export default function Home() {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true, margin: "-100px" }}
              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-             className="text-5xl lg:text-7xl font-light leading-tight tracking-tight"
+             className={`font-light leading-tight tracking-tight ${
+               locale === 'ko' ? 'text-4xl lg:text-6xl' : 'text-5xl lg:text-7xl'
+             }`}
            >
-             {copy.about.titleLine1}<br/><span className="font-medium italic">{copy.about.titleAccent}</span>
+             {copy.about.titleLines[0]}
+             <br/>
+             <span className="font-medium italic">{copy.about.titleLines[1]}</span>
            </motion.h2>
          </div>
          <div className="w-full lg:w-7/12">
