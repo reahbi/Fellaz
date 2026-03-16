@@ -141,7 +141,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     },
     hero: {
       line1: "Backing healthcare ventures with disciplined capital and operational conviction.",
-      line2: "Built by four founder CEOs.",
+      line2: "Built by four healthcare builders.",
       compact: true,
     },
     about: {
@@ -154,7 +154,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       meta: "Healthcare / Investment / Seoul",
     },
     footer: {
-      copyright: "© 2026 Fellatio Inc. All rights reserved.",
+      copyright: "© 2026 FELLAZ Inc. All rights reserved.",
       links: {
         x: "X",
         instagram: "Instagram",
@@ -170,7 +170,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     },
     hero: {
       line1: "헬스케어와 의료 비즈니스에 규율 있는 자본과 실행력을 투자합니다.",
-      line2: "네 명의 대표가 이끄는 사업 플랫폼입니다.",
+      line2: "네 명의 헬스케어 전문가가 이끄는 플랫폼입니다.",
     },
     about: {
       titleLines: ["의료 비즈니스를 위한", "자본과 확장 전략"],
@@ -182,7 +182,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       meta: "헬스케어 / 투자 / 서울",
     },
     footer: {
-      copyright: "© 2026 Fellatio Inc. 모든 권리 보유.",
+      copyright: "© 2026 FELLAZ Inc. 모든 권리 보유.",
       links: {
         x: "엑스",
         instagram: "인스타그램",
