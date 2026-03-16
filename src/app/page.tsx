@@ -2,11 +2,12 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import TeamMemberCard from '@/components/ui/team-member-card';
-import { useRef } from 'react';
-import { founders } from '@/lib/founders';
+import { useRef, useState } from 'react';
+import { getFounders, siteCopy, type Locale } from '@/lib/site-content';
 
 export default function Home() {
   const heroRef = useRef(null);
+  const [locale, setLocale] = useState<Locale>('en');
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -14,6 +15,8 @@ export default function Home() {
 
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const copy = siteCopy[locale];
+  const founders = getFounders(locale);
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black overflow-x-hidden">
@@ -31,11 +34,25 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="text-xs uppercase tracking-[0.2em] flex gap-8 font-medium"
+          className="flex items-center gap-4 md:gap-8 text-xs uppercase tracking-[0.2em] font-medium"
         >
-          <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
-          <a href="#founders" className="hover:opacity-50 transition-opacity">Founders</a>
-          <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
+          <a href="#about" className="hover:opacity-50 transition-opacity">{copy.nav.about}</a>
+          <a href="#founders" className="hover:opacity-50 transition-opacity">{copy.nav.founders}</a>
+          <a href="#contact" className="hover:opacity-50 transition-opacity">{copy.nav.contact}</a>
+          <div className="flex rounded-full border border-white/20 bg-black/40 p-1 backdrop-blur-md">
+            {(['en', 'ko'] as const).map((nextLocale) => (
+              <button
+                key={nextLocale}
+                type="button"
+                onClick={() => setLocale(nextLocale)}
+                className={`rounded-full px-3 py-1 text-[10px] tracking-[0.28em] transition-colors ${
+                  locale === nextLocale ? 'bg-white text-black' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                {nextLocale.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </motion.div>
       </nav>
 
@@ -64,10 +81,12 @@ export default function Home() {
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(0.95rem,2vw,1.8rem)] text-zinc-400 max-w-5xl mx-auto font-light tracking-wide whitespace-nowrap"
+              className={`text-[clamp(0.95rem,2vw,1.8rem)] text-zinc-400 max-w-5xl mx-auto font-light tracking-wide ${
+                copy.hero.compact ? 'whitespace-nowrap' : ''
+              }`}
             >
-              Backing category-defining ventures with disciplined execution.
-              <br/>Led by four founder CEOs.
+              {copy.hero.line1}
+              <br/>{copy.hero.line2}
             </motion.p>
           </div>
           
@@ -90,7 +109,7 @@ export default function Home() {
              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
              className="text-5xl lg:text-7xl font-light leading-tight tracking-tight"
            >
-             The Intersection of<br/><span className="font-medium italic">Art & Tech</span>
+             {copy.about.titleLine1}<br/><span className="font-medium italic">{copy.about.titleAccent}</span>
            </motion.h2>
          </div>
          <div className="w-full lg:w-7/12">
@@ -101,7 +120,7 @@ export default function Home() {
              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
              className="text-2xl text-zinc-400 leading-relaxed font-light"
            >
-             We back healthcare and medical technology ventures with disciplined capital, operational rigor, and a long-term view of value creation. Our focus is on scalable platforms, trusted clinical infrastructure, and products that improve patient outcomes while building resilient businesses.
+             {copy.about.body}
            </motion.p>
          </div>
       </section>
@@ -116,7 +135,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-6xl md:text-8xl font-light uppercase tracking-tighter"
           >
-            Our Founders
+            {copy.founders.title}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -125,7 +144,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-zinc-600 font-medium tracking-[0.3em] uppercase text-sm"
           >
-            Est. 2026 / Seoul
+            {copy.founders.meta}
           </motion.p>
         </div>
 
@@ -156,11 +175,11 @@ export default function Home() {
             Fellatio.
         </motion.h2>
         <div className="flex justify-between items-center w-full max-w-7xl flex-col md:flex-row gap-8">
-          <p>© 2026 Fellatio Inc. All rights reserved.</p>
+          <p>{copy.footer.copyright}</p>
           <div className="flex gap-12">
-            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">Twitter</a>
-            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">LinkedIn</a>
+            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">{copy.footer.links.x}</a>
+            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">{copy.footer.links.instagram}</a>
+            <a href="#" className="hover:text-white transition-colors duration-500 font-medium">{copy.footer.links.linkedin}</a>
           </div>
         </div>
       </footer>
