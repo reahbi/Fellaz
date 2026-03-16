@@ -101,7 +101,7 @@ export default function Home() {
              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
              className="text-2xl text-zinc-400 leading-relaxed font-light"
            >
-             We believe in pushing the boundaries of what&apos;s possible on the web. Our team combines deep technical expertise with an obsessive focus on design, ensuring every interaction feels magical. Black and white is not a constraint; it&apos;s our canvas for ultimate clarity and uncompromising aesthetics.
+             We back healthcare and medical technology ventures with disciplined capital, operational rigor, and a long-term view of value creation. Our focus is on scalable platforms, trusted clinical infrastructure, and products that improve patient outcomes while building resilient businesses.
            </motion.p>
          </div>
       </section>
