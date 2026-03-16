@@ -28,7 +28,7 @@ export default function Home() {
           transition={{ duration: 1, delay: 1 }}
           className="text-xl font-bold tracking-tighter uppercase"
         >
-          Fellatio.
+          FELLAZ.
         </motion.div>
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
@@ -72,7 +72,7 @@ export default function Home() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-[12vw] leading-none font-extralight tracking-tighter uppercase"
             >
-              Fellatio.
+              FELLAZ.
             </motion.h1>
           </div>
           
@@ -175,7 +175,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-[10vw] font-extralight tracking-tighter uppercase text-zinc-800 leading-none"
           >
-            Fellatio.
+            FELLAZ.
         </motion.h2>
         <div className="flex justify-between items-center w-full max-w-7xl flex-col md:flex-row gap-8">
           <p>{copy.footer.copyright}</p>
